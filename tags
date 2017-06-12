@@ -1,0 +1,198 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ANY_KEY_BLINK_TIME	data/states/widget_tools.py	/^ANY_KEY_BLINK_TIME = 350$/;"	v
+ANY_KEY_Y	data/states/controls.py	/^ANY_KEY_Y = -100$/;"	v
+ANY_KEY_Y	data/states/title.py	/^ANY_KEY_Y = -100$/;"	v
+ASTEROIDS	data/prepare.py	/^ASTEROIDS = {$/;"	v
+AnyKey	data/states/widget_tools.py	/^class AnyKey(SimpleText):  # {{{1$/;"	c
+Asteroid	data/components/asteroids.py	/^class Asteroid(components._MovingSprite):$/;"	c
+AsteroidsGroup	data/components/asteroids.py	/^class AsteroidsGroup(pg.sprite.RenderPlain):$/;"	c
+BACKGROUND_COLOR	data/prepare.py	/^BACKGROUND_COLOR = (0, 0, 30)$/;"	v
+BIG_UFO	data/prepare.py	/^BIG_UFO = {$/;"	v
+BOTTOM_Y_SHIFT	data/states/game.py	/^BOTTOM_Y_SHIFT = 100$/;"	v
+CAPTION	data/prepare.py	/^CAPTION = 'Asteroids'$/;"	v
+COLOR_SELECTED	data/states/select.py	/^COLOR_SELECTED = (255, 255, 0)$/;"	v
+CommandSubstate	data/states/select.py	/^class CommandSubstate(state_machine._State):  # {{{1$/;"	c
+Control	data/tools.py	/^class Control:  # {{{1$/;"	c
+Controls	data/states/controls.py	/^class Controls(state_machine._State):  # {{{1$/;"	c
+DEGREE_DEADZONE	data/components/asteroids.py	/^DEGREE_DEADZONE = 20$/;"	v
+ENERGY_LOSS	data/components/components.py	/^ENERGY_LOSS = 0  # percent$/;"	v
+FONT_PATHS	data/prepare.py	/^FONT_PATHS  = tools.load_all_fonts(os.path.join('resources', 'fonts'))$/;"	v
+FPS	data/prepare.py	/^FPS = 60$/;"	v
+FRAGMENTS	data/components/asteroids.py	/^FRAGMENTS = (2, 4)$/;"	v
+GTX	data/prepare.py	/^GTX         = tools.load_all_gtx(os.path.join('resources', 'graphics'))$/;"	v
+Game	data/states/game.py	/^class Game(state_machine._State):$/;"	c
+HEADER_FONT	data/prepare.py	/^HEADER_FONT = pg.font.Font(_FONT_PATH, 150)$/;"	v
+HEADER_MARGIN_TOP	data/states/select.py	/^HEADER_MARGIN_TOP = 150$/;"	v
+LASER	data/prepare.py	/^LASER = {$/;"	v
+LASER_COLOR	data/components/laser.py	/^LASER_COLOR = (255, 255, 255)$/;"	v
+LEFT	data/components/ship.py	/^    LEFT = 1$/;"	v	class:Ship
+Laser	data/components/laser.py	/^class Laser(components._FrameBasedSprite):  # {{{1$/;"	c
+Lasers	data/components/laser.py	/^class Lasers(pg.sprite.RenderPlain):  # {{{1$/;"	c
+MUSIC_PATHS	data/prepare.py	/^MUSIC_PATHS = tools.load_all_music(os.path.join('resources', 'music'))$/;"	v
+OPTIONS	data/states/select.py	/^OPTIONS = ['PLAY', 'CONTROLS', 'QUIT']$/;"	v
+OPTIONS_FONT_SIZE	data/states/select.py	/^OPTIONS_FONT_SIZE = 100$/;"	v
+OPTIONS_SPACING	data/states/select.py	/^OPTIONS_SPACING = 150$/;"	v
+OPTIONS_Y	data/states/select.py	/^OPTIONS_Y = 200$/;"	v
+OptionItem	data/states/select.py	/^class OptionItem(widget_tools.SimpleText):  # {{{1$/;"	c
+Options	data/states/select.py	/^class Options(state_machine._State):  # {{{1$/;"	c
+PlayerGroup	data/states/game.py	/^class PlayerGroup(pg.sprite.GroupSingle):$/;"	c
+Quit	data/states/quit.py	/^class Quit(state_machine._State):  # {{{1$/;"	c
+RIGHT	data/components/ship.py	/^    RIGHT = -1$/;"	v	class:Ship
+Restart	data/states/game.py	/^class Restart(state_machine._State):$/;"	c
+SCREEN_RECT	data/prepare.py	/^SCREEN_RECT = pg.Rect((0, 0), SCREEN_SIZE)$/;"	v
+SCREEN_SIZE	data/prepare.py	/^SCREEN_SIZE = (1600, 900)$/;"	v
+SFX	data/prepare.py	/^SFX         = tools.load_all_sfx(os.path.join('resources', 'sounds'))$/;"	v
+SHIP	data/prepare.py	/^SHIP = {$/;"	v
+SHIP_ENERGY_LOSS	data/components/ship.py	/^SHIP_ENERGY_LOSS = 20$/;"	v
+SIDE_MARGIN	data/states/game.py	/^SIDE_MARGIN = 20$/;"	v
+SMALL_UFO	data/prepare.py	/^SMALL_UFO = {$/;"	v
+SMOKE	data/prepare.py	/^SMOKE = {$/;"	v
+SPEED	data/components/asteroids.py	/^SPEED = (2, 3)$/;"	v
+Score	data/states/game.py	/^class Score(widget_tools.SimpleText):$/;"	c
+Select	data/states/select.py	/^class Select(state_machine._State):  # {{{1$/;"	c
+Ship	data/components/ship.py	/^class Ship(ShipTraction):  # {{{1$/;"	c
+ShipPoint	data/components/ship.py	/^class ShipPoint:  # {{{1$/;"	c
+ShipTraction	data/components/ship.py	/^class ShipTraction(components._MovingSprite):  # {{{1$/;"	c
+SimpleImage	data/states/widget_tools.py	/^class SimpleImage:  # {{{1$/;"	c
+SimpleText	data/states/widget_tools.py	/^class SimpleText:  # {{{1$/;"	c
+SmokeGenerator	data/components/ship.py	/^class SmokeGenerator(pg.sprite.RenderPlain):  # {{{1$/;"	c
+SmokeParticle	data/components/ship.py	/^class SmokeParticle(components._FrameBasedSprite):  # {{{1$/;"	c
+StateMachine	data/state_machine.py	/^class StateMachine:  # {{{1$/;"	c
+TIME_PER_UPDATE	data/tools.py	/^TIME_PER_UPDATE = 16  # Milliseconds - little bit above 60 fps$/;"	v
+Timer	data/tools.py	/^class Timer:  # {{{1$/;"	c
+Title	data/states/title.py	/^class Title(state_machine._State):$/;"	c
+_FONT_PATH	data/prepare.py	/^_FONT_PATH = os.path.join('resources', 'fonts', 'ARCADECLASSIC.ttf')$/;"	v
+_FrameBasedSprite	data/components/components.py	/^class _FrameBasedSprite(_MovingSprite):  # {{{1$/;"	c
+_ICON_PATH	data/prepare.py	/^_ICON_PATH = os.path.join('resources', 'graphics', 'icon.png')$/;"	v
+_MovingSprite	data/components/components.py	/^class _MovingSprite(pg.sprite.Sprite):  # {{{1$/;"	c
+_SHIP_SIZES	data/prepare.py	/^_SHIP_SIZES = GTX['ship'].get_size()$/;"	v
+_SLOW_SPEED_FACTOR	data/prepare.py	/^_SLOW_SPEED_FACTOR = 5$/;"	v
+_State	data/state_machine.py	/^class _State(abc.ABC):  # {{{1$/;"	c
+_Y_OFFSET	data/prepare.py	/^_Y_OFFSET = (pg.display.Info().current_w - SCREEN_SIZE[0]) \/\/ 2$/;"	v
+__init__	data/components/asteroids.py	/^    def __init__(self):$/;"	m	class:AsteroidsGroup
+__init__	data/components/asteroids.py	/^    def __init__(self, level, position, kill_callback):$/;"	m	class:Asteroid
+__init__	data/components/components.py	/^    def __init__(self, img, position):$/;"	m	class:_MovingSprite
+__init__	data/components/components.py	/^    def __init__(self, max_frames, img, position):  # {{{2$/;"	m	class:_FrameBasedSprite
+__init__	data/components/laser.py	/^    def __init__(self):  # {{{2$/;"	m	class:Lasers
+__init__	data/components/laser.py	/^    def __init__(self, gun, color=LASER_COLOR):$/;"	m	class:Laser
+__init__	data/components/ship.py	/^    def __init__(self):  # {{{2$/;"	m	class:Ship
+__init__	data/components/ship.py	/^    def __init__(self):  # {{{2$/;"	m	class:ShipTraction
+__init__	data/components/ship.py	/^    def __init__(self):  # {{{2$/;"	m	class:SmokeGenerator
+__init__	data/components/ship.py	/^    def __init__(self, *groups, jet=None):  # {{{2$/;"	m	class:SmokeParticle
+__init__	data/components/ship.py	/^    def __init__(self, x, y, direction, dx, dy):$/;"	m	class:ShipPoint
+__init__	data/state_machine.py	/^    def __init__(self):  # {{{2$/;"	m	class:_State
+__init__	data/states/controls.py	/^    def __init__(self):  # {{{2$/;"	m	class:Controls
+__init__	data/states/game.py	/^    def __init__(self):$/;"	m	class:Game
+__init__	data/states/game.py	/^    def __init__(self):$/;"	m	class:PlayerGroup
+__init__	data/states/game.py	/^    def __init__(self):$/;"	m	class:Score
+__init__	data/states/quit.py	/^    def __init__(self):  # {{{2$/;"	m	class:Quit
+__init__	data/states/select.py	/^    def __init__(self):  # {{{2$/;"	m	class:Select
+__init__	data/states/select.py	/^    def __init__(self, options):  # {{{2$/;"	m	class:Options
+__init__	data/states/select.py	/^    def __init__(self, require):  # {{{2$/;"	m	class:CommandSubstate
+__init__	data/states/select.py	/^    def __init__(self, title, y):  # {{{2$/;"	m	class:OptionItem
+__init__	data/states/title.py	/^    def __init__(self):$/;"	m	class:Title
+__init__	data/states/widget_tools.py	/^    def __init__(self, font, size, center):  # {{{2$/;"	m	class:AnyKey
+__init__	data/states/widget_tools.py	/^    def __init__(self, font, size, text, position=None, color=(255,255,255)):  # {{{2$/;"	m	class:SimpleText
+__init__	data/states/widget_tools.py	/^    def __init__(self, image, center):  # {{{2$/;"	m	class:SimpleImage
+__init__	data/tools.py	/^    def __init__(self, caption):  # {{{2$/;"	m	class:Control
+__init__	data/tools.py	/^    def __init__(self, delay, callback, ticks=-1):  # {{{2$/;"	m	class:Timer
+__init___	data/state_machine.py	/^    def __init___(self):  # {{{2$/;"	m	class:StateMachine	file:
+__metaclass__	data/components/components.py	/^    __metaclass__=abc.ABCMeta$/;"	v	class:_FrameBasedSprite
+__metaclass__	data/components/components.py	/^    __metaclass__=abc.ABCMeta$/;"	v	class:_MovingSprite
+_check_angle	data/components/components.py	/^    def _check_angle(self, angle):  # {{{2$/;"	m	class:_MovingSprite
+_check_position	data/components/components.py	/^    def _check_position(self):  # {{{2$/;"	m	class:_MovingSprite
+_get_paths_with_filter	data/tools.py	/^def _get_paths_with_filter(directory, accept, fce=None):  # {{{1$/;"	f
+_gtx_value_fce	data/tools.py	/^def _gtx_value_fce(colorkey, fullpath):  # {{{1$/;"	f
+_render	data/prepare.py	/^_render = HEADER_FONT.render('LOADING', 0, pg.Color('white'))$/;"	v
+_screen	data/prepare.py	/^_screen = pg.display.set_mode(SCREEN_SIZE, pg.DOUBLEBUF)$/;"	v
+accelerate	data/components/components.py	/^    def accelerate(self, angle, speed):  # {{{2$/;"	m	class:_MovingSprite
+accelerate	data/components/ship.py	/^    def accelerate(self):  # {{{2$/;"	m	class:ShipTraction
+add_score	data/states/game.py	/^    def add_score(self, value):$/;"	m	class:Score
+change_pos	data/states/widget_tools.py	/^def change_pos(position, x, y):$/;"	f
+check_collide	data/states/game.py	/^    def check_collide(self):$/;"	m	class:Game
+check_tick	data/tools.py	/^    def check_tick(self, now):  # {{{2$/;"	m	class:Timer
+cleanup	data/state_machine.py	/^    def cleanup(self):  # {{{2$/;"	m	class:_State
+config	data/states/widget_tools.py	/^    def config(self,$/;"	m	class:SimpleText
+create_asteroids	data/components/asteroids.py	/^    def create_asteroids(self, number, level, position=prepare.SCREEN_RECT.center):$/;"	m	class:AsteroidsGroup
+create_particle	data/components/ship.py	/^    def create_particle(self, number, jet):  # {{{2$/;"	m	class:SmokeGenerator
+draw	data/components/components.py	/^    def draw(self, surface):   # {{{2$/;"	m	class:_MovingSprite
+draw	data/components/ship.py	/^    def draw(self, surface):  # {{{2$/;"	m	class:Ship
+draw	data/state_machine.py	/^    def draw(self, surface, interpolate):  # {{{2$/;"	m	class:StateMachine
+draw	data/states/controls.py	/^    def draw(self, surface, interpolate):  # {{{2$/;"	m	class:Controls
+draw	data/states/game.py	/^    def draw(self, surface, interpolate):$/;"	m	class:Game
+draw	data/states/quit.py	/^    def draw(self, surface, interpolate):  # {{{2$/;"	m	class:Quit
+draw	data/states/select.py	/^    def draw(self, surface, interpolate):  # {{{2$/;"	m	class:CommandSubstate
+draw	data/states/select.py	/^    def draw(self, surface, interpolate):  # {{{2$/;"	m	class:Options
+draw	data/states/select.py	/^    def draw(self, surface, interpolate):  # {{{2$/;"	m	class:Select
+draw	data/states/title.py	/^    def draw(self, surface, interpolate):$/;"	m	class:Title
+draw	data/states/widget_tools.py	/^    def draw(self, surface):  # {{{2$/;"	m	class:SimpleImage
+draw	data/states/widget_tools.py	/^    def draw(self, surface):  # {{{2$/;"	m	class:SimpleText
+draw	data/tools.py	/^    def draw(self, interpolate):  # {{{2$/;"	m	class:Control
+event_loop	data/tools.py	/^    def event_loop(self):  # {{{2$/;"	m	class:Control
+fire	data/components/laser.py	/^    def fire(self, gun):  # {{{2$/;"	m	class:Lasers
+flip_state	data/state_machine.py	/^    def flip_state(self):  # {{{2$/;"	m	class:StateMachine
+fragment_asteroid	data/components/asteroids.py	/^    def fragment_asteroid(self, asteroid):$/;"	m	class:AsteroidsGroup
+get_alpha_by_frame	data/components/ship.py	/^    def get_alpha_by_frame(self, frame, max_frames):  # {{{2$/;"	m	class:SmokeParticle
+get_event	data/state_machine.py	/^    def get_event(self, event):  # {{{2$/;"	m	class:StateMachine
+get_event	data/state_machine.py	/^    def get_event(self, event):$/;"	m	class:_State
+get_event	data/states/controls.py	/^    def get_event(self, event):  # {{{2$/;"	m	class:Controls
+get_event	data/states/game.py	/^    def get_event(self, event):$/;"	m	class:Game
+get_event	data/states/game.py	/^    def get_event(self, event):$/;"	m	class:PlayerGroup
+get_event	data/states/quit.py	/^    def get_event(self, event):  # {{{2$/;"	m	class:Quit
+get_event	data/states/select.py	/^    def get_event(self, event):  # {{{2$/;"	m	class:CommandSubstate
+get_event	data/states/select.py	/^    def get_event(self, event):  # {{{2$/;"	m	class:Options
+get_event	data/states/select.py	/^    def get_event(self, event):  # {{{2$/;"	m	class:Select
+get_event	data/states/title.py	/^    def get_event(self, event):$/;"	m	class:Title
+get_gun	data/components/ship.py	/^    def get_gun(self):  # {{{2$/;"	m	class:ShipTraction
+get_jet	data/components/ship.py	/^    def get_jet(self):  # {{{2$/;"	m	class:ShipTraction
+get_position	data/components/components.py	/^    def get_position(self):  #  {{{2$/;"	m	class:_MovingSprite
+get_position	data/components/ship.py	/^    def get_position(self):  # {{{2$/;"	m	class:ShipPoint
+get_ship_point	data/components/ship.py	/^    def get_ship_point(self, direction):  # {{{2$/;"	m	class:ShipTraction
+is_selected	data/states/select.py	/^    def is_selected(self, selected):  # {{{2$/;"	m	class:OptionItem
+key_event	data/components/ship.py	/^    def key_event(self):  # {{{2$/;"	m	class:Ship
+kill	data/components/asteroids.py	/^    def kill(self):$/;"	m	class:Asteroid
+load_all_fonts	data/tools.py	/^def load_all_fonts(directory, accept=('.ttf')):  # {{{1$/;"	f
+load_all_gtx	data/tools.py	/^def load_all_gtx(directory, accept=('.png'), colorkey=(255, 0, 255)):  # {{{1$/;"	f
+load_all_music	data/tools.py	/^def load_all_music(directory, accept=('.wav', '.mp3', '.ogg')):  # {{{1$/;"	f
+load_all_sfx	data/tools.py	/^def load_all_sfx(directory, accept=('.wav', '.mp3', '.ogg')):  # {{{1$/;"	f
+main	data/main.py	/^def main():  # {{{1$/;"	f
+main	data/tools.py	/^    def main(self):  # {{{2$/;"	m	class:Control
+make_changes	data/components/components.py	/^    def make_changes(self, frames):$/;"	m	class:_FrameBasedSprite
+make_changes	data/components/ship.py	/^    def make_changes(self, frames):$/;"	m	class:SmokeParticle
+next_level	data/components/asteroids.py	/^    def next_level(self):$/;"	m	class:AsteroidsGroup
+render_font	data/states/widget_tools.py	/^def render_font(font, size, msg, color=(255, 255, 255)):  # {{{1$/;"	f
+rotate	data/components/ship.py	/^    def rotate(self, side):  # {{{2$/;"	m	class:ShipTraction
+rotate_angle	data/components/components.py	/^    def rotate_angle(self, degree):  # {{{2$/;"	m	class:_MovingSprite
+set_highline	data/states/select.py	/^    def set_highline(self, new_index):  # {{{2$/;"	m	class:Options
+set_initial_position	data/components/asteroids.py	/^    def set_initial_position(self):$/;"	m	class:Asteroid
+set_original	data/components/components.py	/^    def set_original(self, image):  # {{{2$/;"	m	class:_MovingSprite
+setup_states	data/state_machine.py	/^    def setup_states(self, state_dict, start_state):  # {{{2$/;"	m	class:StateMachine
+slow_down	data/components/ship.py	/^    def slow_down(self):  # {{{2$/;"	m	class:ShipTraction
+space_pressed	data/components/ship.py	/^    def space_pressed(self):  # {{{2$/;"	m	class:Ship
+spawn	data/states/game.py	/^    def spawn(self):$/;"	m	class:Game
+startup	data/state_machine.py	/^    def startup(self, now, persistant):  # {{{2$/;"	m	class:_State
+startup	data/states/select.py	/^    def startup(self, now, persist):  # {{{2$/;"	m	class:Select
+toggle	data/states/widget_tools.py	/^    def toggle(self, tick_count):  # {{{2$/;"	m	class:AnyKey
+update	data/components/components.py	/^    def update(self):  # {{{2$/;"	m	class:_MovingSprite
+update	data/components/components.py	/^    def update(self, *args):  # {{{2$/;"	m	class:_FrameBasedSprite
+update	data/components/ship.py	/^    def update(self, keys, now):  # {{{2$/;"	m	class:Ship
+update	data/state_machine.py	/^    def update(self, keys, now):  # {{{2$/;"	m	class:StateMachine
+update	data/state_machine.py	/^    def update(self, keys, now):$/;"	m	class:_State
+update	data/states/controls.py	/^    def update(self, keys, now):  # {{{2$/;"	m	class:Controls
+update	data/states/game.py	/^    def update(self, keys, now):$/;"	m	class:Game
+update	data/states/game.py	/^    def update(self, keys, now):$/;"	m	class:PlayerGroup
+update	data/states/quit.py	/^    def update(self, keys, now):  # {{{2$/;"	m	class:Quit
+update	data/states/select.py	/^    def update(self, keys, now):  # {{{2$/;"	m	class:CommandSubstate
+update	data/states/select.py	/^    def update(self, keys, now):  # {{{2$/;"	m	class:Options
+update	data/states/select.py	/^    def update(self, keys, now):  # {{{2$/;"	m	class:Select
+update	data/states/title.py	/^    def update(self, keys, now):$/;"	m	class:Title
+update	data/states/widget_tools.py	/^    def update(self, now):  # {{{2$/;"	m	class:AnyKey
+update	data/tools.py	/^    def update(self):  # {{{2$/;"	m	class:Control
+update_image	data/components/components.py	/^    def update_image(self):  # {{{2$/;"	m	class:_MovingSprite
+update_text	data/states/game.py	/^    def update_text(self):$/;"	m	class:Score
+update_text	data/states/widget_tools.py	/^    def update_text(self):  # {{{2$/;"	m	class:SimpleText
