@@ -24,7 +24,7 @@ HEADER_FONT = pg.font.Font(_FONT_PATH, 150)
 # Initialization
 _ICON_PATH = os.path.join('resources', 'graphics', 'icon.png')
 _Y_OFFSET = (pg.display.Info().current_w - SCREEN_SIZE[0]) // 2
-os.environ['SDL_VIDEO_VINDOW_POS'] = '{},{}'.format(_Y_OFFSET, 25)
+os.environ['SDL_VIDEO_WINDOW_POS'] = '{},{}'.format(_Y_OFFSET, 25)
 pg.display.set_caption(CAPTION)
 pg.display.set_icon(pg.image.load(_ICON_PATH))
 _screen = pg.display.set_mode(SCREEN_SIZE, pg.DOUBLEBUF)
