@@ -16,7 +16,7 @@ doesn't accelerate for some time.
 ```
 git clone git@github.com:Lukkra211/Asteroids.git
 cd Asteroids
-python3 asteroids.py
+./asteroids
 ```
 
 or

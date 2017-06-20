@@ -8,7 +8,7 @@ runloop:
 		sleep 0.1; clear; make run; \
 	done
 run:
-	python3 asteroids.py
+	./asteroids
 
 clean: cleanvim cleanpy
 
