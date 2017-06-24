@@ -14,6 +14,7 @@ FRAGMENTS = (2, 4)
 SPEED = (2, 3)
 DEGREE_DEADZONE = 20
 
+
 class AsteroidsGroup(pg.sprite.RenderPlain):
     """
     Own all asteroids and take care of its creations and fragmentations.
@@ -23,9 +24,9 @@ class AsteroidsGroup(pg.sprite.RenderPlain):
         self.round_level = 0
         self.asteroids_number = 0
 
-    def create_asteroids(self, number, level, position=prepare.SCREEN_RECT.center):
+    def create_asteroids(self, number, level, pos=prepare.SCREEN_RECT.center):
         for i in range(number):
-            self.add(Asteroid(level, position, self.fragment_asteroid))
+            self.add(Asteroid(level, pos, self.fragment_asteroid))
 
     def next_level(self):
         self.round_level += 1

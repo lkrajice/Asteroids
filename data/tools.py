@@ -90,7 +90,7 @@ class Timer:
         self.tick_count = 0
         self.timer = None
         self.done = False
-        self.callback=callback
+        self.callback = callback
 
     def check_tick(self, now):
         """

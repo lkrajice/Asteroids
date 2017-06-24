@@ -15,6 +15,7 @@ FONT_SIZE = 80
 SPACING = 10
 SHIP_SPACING = 50
 
+
 class Game(state_machine._State):
     """
     The core of the game.
@@ -81,7 +82,6 @@ class Game(state_machine._State):
                 1):
             self.score.add_score(100)
 
-
         if not self.ship.immortal:
             for asteroid in pg.sprite.groupcollide(
                     self.playerGroup,
@@ -141,7 +141,7 @@ class Score(widget_tools.SimpleText):
     """
     def __init__(self):
         self.position = (prepare.SCREEN_RECT.right - SIDE_MARGIN,
-                    prepare.SCREEN_RECT.bottom - BOTTOM_Y_SHIFT)
+                         prepare.SCREEN_RECT.bottom - BOTTOM_Y_SHIFT)
         self.score = 0
         widget_tools.SimpleText.__init__(self, 'ARCADECLASSIC', FONT_SIZE, '0')
         self.update_text()

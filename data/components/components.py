@@ -7,14 +7,12 @@ from .. import prepare
 ENERGY_LOSS = 0  # percent
 
 
-class _MovingSprite(pg.sprite.Sprite):
+class _MovingSprite(pg.sprite.Sprite, metaclass=abc.ABCMeta):
     """
     Abstract advanced sprite. It's able to tracks position, speed and do
     various kinds of calculations. It takes care about movement, rotation and
     interacting with sides of the sreen.
     """
-
-    __metaclass__=abc.ABCMeta
 
     def __init__(self, img, position):
         pg.sprite.Sprite.__init__(self, [])
@@ -30,7 +28,7 @@ class _MovingSprite(pg.sprite.Sprite):
         self.rotation = 0
 
         self.original = prepare.GTX[img] if isinstance(img, str) else img
-        self.image = self.original.copy()
+        self.image = None
         self.rect = None
         self.color = None
         self.alpha = 255
@@ -112,19 +110,17 @@ class _MovingSprite(pg.sprite.Sprite):
         '''
         return self.x, self.y
 
-class _FrameBasedSprite(_MovingSprite):
+
+class _FrameBasedSprite(_MovingSprite, metaclass=abc.ABCMeta):
     """
     Simple extension. When update is called max_frames times, Sprite kill
     itself.
     """
 
-    __metaclass__=abc.ABCMeta
-
     def __init__(self, max_frames, img, position):
         _MovingSprite.__init__(self, img, position)
         self.max_frames = max_frames
         self.count = 0
-
 
     def update(self, *args):
         self.count += 1

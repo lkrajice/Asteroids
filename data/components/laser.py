@@ -7,8 +7,8 @@ import pygame as pg
 from . import components
 from .. import prepare
 
-
 LASER_COLOR = (255, 255, 255)
+
 
 class Lasers(pg.sprite.RenderPlain):
     """
@@ -39,3 +39,6 @@ class Laser(components._FrameBasedSprite):
         self.rect = self.image.get_rect(center=gun.get_position())
 
         self.accelerate(self.rotation, prepare.LASER['speed'])
+
+    def make_changes(self, frames):
+        pass

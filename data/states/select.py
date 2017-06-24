@@ -7,7 +7,6 @@ import pygame as pg
 from . import widget_tools
 from .. import prepare, tools, state_machine
 
-
 HEADER_MARGIN_TOP = 150
 OPTIONS_Y = 200
 OPTIONS_FONT_SIZE = 100
@@ -46,12 +45,11 @@ class Select(state_machine._State):
         CommandSubstate command Select state, that it shoud end and call
         another state.
         """
-        state_dict = {'OPTIONS'  : Options(OPTIONS),
-                      'PLAY'     : CommandSubstate('GAME'),
-                      'CONTROLS' : CommandSubstate('CONTROLS'),
-                      'QUIT'     : CommandSubstate('QUIT'),
-        }
-        self.state_machine.setup_states(state_dict, 'OPTIONS');
+        state_dict = {'OPTIONS': Options(OPTIONS),
+                      'PLAY': CommandSubstate('GAME'),
+                      'CONTROLS': CommandSubstate('CONTROLS'),
+                      'QUIT': CommandSubstate('QUIT')}
+        self.state_machine.setup_states(state_dict, 'OPTIONS')
 
     def get_event(self, event):
         self.state_machine.get_event(event)
@@ -67,7 +65,7 @@ class Select(state_machine._State):
         'require_higher_level_to' state.
         """
         if self.state_machine.state.quit:
-            self.next = self.state_machine.state.require_higher_level_to;
+            self.next = self.state_machine.state.require_higher_level_to
             self.done = True
         else:
             self.state_machine.update(keys, now)
@@ -92,10 +90,11 @@ class OptionItem(widget_tools.SimpleText):
         Colorize text to COLOR_SELECTED or white.
         """
         if selected:
-            self.color=COLOR_SELECTED
+            self.color = COLOR_SELECTED
         else:
-            self.color=(255, 255, 255)
+            self.color = (255, 255, 255)
         self.update_text()
+
 
 class Options(state_machine._State):
     """
@@ -135,7 +134,7 @@ class Options(state_machine._State):
                 new_index = max(0, self.active_index - 1)
             elif event.key == pg.K_DOWN:
                 new_index = min(len(self.option_items) - 1,
-                                          self.active_index + 1)
+                                self.active_index + 1)
             self.set_highline(new_index)
 
 

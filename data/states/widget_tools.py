@@ -7,7 +7,6 @@ import pygame as pg
 
 from .. import prepare, tools
 
-
 ANY_KEY_BLINK_TIME = 350
 
 
@@ -15,7 +14,7 @@ class SimpleText:
     """
     Basic text surface without anz special functions.
     """
-    def __init__(self, font, size, text, position=None, color=(255,255,255)):
+    def __init__(self, font, size, text, position=None, color=(255, 255, 255)):
         self.font = font
         self.size = size
         self.text = text

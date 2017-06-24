@@ -32,7 +32,7 @@ class ShipPoint:
         return (self.x, self.y)
 
 
-class ShipTraction(components._MovingSprite):
+class _ShipTraction(components._MovingSprite):
     """
     The class keps track about ships velocity, position, rotation etc...
     Separate math from GUI.
@@ -79,7 +79,6 @@ class ShipTraction(components._MovingSprite):
             self.dy = 0
         # TODO calculate dx and dy with speed = 15
 
-
     def get_jet(self):
         """
         Return informations about poins near ship's jet.
@@ -106,7 +105,7 @@ class ShipTraction(components._MovingSprite):
         return ShipPoint(x_position, y_position, direction, self.dx, self.dy)
 
 
-class Ship(ShipTraction):
+class Ship(_ShipTraction):
     """
     User's ship.
     """
@@ -115,12 +114,14 @@ class Ship(ShipTraction):
     RIGHT = -1
 
     def __init__(self):
-        ShipTraction.__init__(self)
+        _ShipTraction.__init__(self)
         self.begin = -1
         self.now = 0
         self.immortal = True
         self.transparent = False
-        self.blink_timer = tools.Timer(SHIP_BLINK_SPEED / 2, self.blink, BLINK_COUNT)
+        self.blink_timer = tools.Timer(SHIP_BLINK_SPEED / 2,
+                                       self.blink,
+                                       BLINK_COUNT)
 
         self.colide_rotation = False
         self.energy_loss = SHIP_ENERGY_LOSS
@@ -145,7 +146,7 @@ class Ship(ShipTraction):
         self.rect = self.image.get_rect(center=self.get_position())
 
         self.blink_timer.check_tick(now)
-        ShipTraction.update(self)
+        _ShipTraction.update(self)
         self.smoke_generator.update()
 
     def draw(self, surface):
@@ -197,7 +198,8 @@ class SmokeParticle(components._FrameBasedSprite):
 
         self.rotation = random.randint(0, 89)
         # Randomly select position with max deflection = 20
-        center = list((x + random.randint(-20, 20) for x in jet.get_position()))
+        center = list((x + random.randint(-20, 20)
+                       for x in jet.get_position()))
         # Randomly set direction
         self.x = center[0]
         self.y = center[1]

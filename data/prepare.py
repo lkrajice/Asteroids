@@ -10,6 +10,7 @@ import time
 
 from . import tools
 
+
 pg.init()
 
 FPS = 60
@@ -37,10 +38,10 @@ _screen.blit(_render, _render.get_rect(center=SCREEN_RECT.center))
 pg.display.flip()
 
 # Resources
-FONT_PATHS  = tools.load_all_fonts(os.path.join('resources', 'fonts'))
+FONT_PATHS = tools.load_all_fonts(os.path.join('resources', 'fonts'))
 MUSIC_PATHS = tools.load_all_music(os.path.join('resources', 'music'))
-SFX         = tools.load_all_sfx(os.path.join('resources', 'sounds'))
-GTX         = tools.load_all_gtx(os.path.join('resources', 'graphics'))
+SFX = tools.load_all_sfx(os.path.join('resources', 'sounds'))
+GTX = tools.load_all_gtx(os.path.join('resources', 'graphics'))
 
 _SHIP_SIZES = GTX['ship'].get_size()
 
@@ -57,7 +58,8 @@ SHIP = {
 # If calculated differently, max_speed will change. 'slow_factor' take care
 # max speed by itself.
 _SLOW_SPEED_FACTOR = 5
-SHIP['slow_factor'] = 1 - ((SHIP['acceleration'] / _SLOW_SPEED_FACTOR ) / SHIP['max_speed'])
+SHIP['slow_factor'] = 1 - (SHIP['acceleration'] /
+                           (_SLOW_SPEED_FACTOR * SHIP['max_speed']))
 
 SMOKE = {
         'size': (5, 5),
@@ -66,8 +68,8 @@ SMOKE = {
         'frames': 15,
         'speed': 4,
 }
-SMOKE['rgb_change_per_frame'] = [(x - y) / SMOKE['frames']
-                                for x, y in zip(SMOKE['color'], SMOKE['end_color'])]
+SMOKE['rgb_change_per_frame'] = [(x - y) / SMOKE['frames'] for x, y
+                                 in zip(SMOKE['color'], SMOKE['end_color'])]
 
 ASTEROIDS = {
         'level': 3,
