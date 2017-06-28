@@ -9,6 +9,8 @@ from .states import title, select, controls, game, quit
 
 def main():
     """Set initial state to control."""
+    prepare.init_display()
+
     app = tools.Control(prepare.CAPTION)
     state_dict = {'TITLE': title.Title(),
                   'SELECT': select.Select(),
