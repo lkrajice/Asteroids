@@ -10,6 +10,11 @@ runloop:
 run:
 	./asteroids
 
+test:
+	nosetests tests --with-coverage --cover-erase -v -s --cover-package=data.components data.states.game
+	-pyflakes .
+	-pep8 .
+
 clean: cleanvim cleanpy
 
 cleanvim:
