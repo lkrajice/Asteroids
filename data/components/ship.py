@@ -195,11 +195,13 @@ class Ship(_ShipTraction):
 
     def key_event(self):
         keys = pg.key.get_pressed()
-        if keys[pg.K_LEFT] and not keys[pg.K_RIGHT]:
+        if ((keys[pg.K_LEFT] and not keys[pg.K_RIGHT]) or
+                (keys[pg.K_a] and not keys[pg.K_d])):
             self.rotate(self.LEFT)
-        elif keys[pg.K_RIGHT] and not keys[pg.K_LEFT]:
+        elif ((keys[pg.K_RIGHT] and not keys[pg.K_LEFT]) or
+                (keys[pg.K_d] and not keys[pg.K_a])):
             self.rotate(self.RIGHT)
-        if keys[pg.K_UP]:
+        if keys[pg.K_UP] or keys[pg.K_w]:
             self.accelerate()
             self.smoke_generator.create_particle(20, self.get_jet())
 
