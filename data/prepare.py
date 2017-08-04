@@ -1,12 +1,25 @@
 """
-Module contains dictionaries of resources and constants.
-It also initializes pygame.
+Module with constants, initial settings and pygame initialization
+
+Attributes:
+    FPS (int): fps of the program
+    SCREEN_SIZE (:obj:`tuple` of :obj:`int`): default screen sizes
+    CENTER (:obj:`tuple` of :obj:`int`): center of the screen
+    CAPTION (str): caption of the window
+    BACKGROUND_COLOR (:obj:`tuple` of :obj:`int`): default background color
+    SCREEN_RECT (pygame.Rect): screen rectangle object
+    SLOW_FACTOR (int): ship slows its speed by `SLOW_FACTOR` percent each frame
+    FONT_PATHS (:obj:`list` of :obj:`str`): filepaths to fonts
+    MUSIC_PATHS (:obj:`list` of :obj:`str`): filepaths to music
+    SFX (:obj:`list` of :obj:`str`): filepaths to sfx
+    GTX (:obj:`list` of :obj:`pygame.Surface`): loaded imagex
+
 """
 
 import pygame as pg
 import os
 
-from . import tools
+from data import tools
 
 FPS = 60
 SCREEN_SIZE = (1600, 836)
@@ -21,8 +34,7 @@ MUSIC_PATHS = None
 SFX = None
 GTX = None
 
-# Settings
-SHIP = {
+SHIP = {  #: initial settings of ship
         'lives': 4,
         'score': 0,
         'initial_angle': 90,
@@ -30,10 +42,10 @@ SHIP = {
         'max_speed': 10,
         'acceleration': 0.25,
         'rotate_speed': 270,
-        'slow_factor': 1 - SLOW_FACTOR / (100)
+        'slow_factor': SLOW_FACTOR / 100
 }
 
-SMOKE = {
+SMOKE = {  #: initial settings of ship's smoke particles
         'size': (5, 5),
         'color': [255, 0, 0],
         'end_color': [255, 120, 0],
@@ -43,23 +55,23 @@ SMOKE = {
 SMOKE['rgb_change_per_frame'] = [(x - y) / SMOKE['frames'] for x, y
                                  in zip(SMOKE['color'], SMOKE['end_color'])]
 
-ASTEROIDS = {
+ASTEROIDS = {  #: initial settings of asteroids
         'level': 3,
 }
 
-LASER = {
+LASER = {  #: initial settings of lasers
         'speed': 30,
         'frames': 50,
         'max': 4,
         'img': pg.Surface((7, 7))
 }
 
-BIG_UFO = {
+BIG_UFO = {  #: initial settings of big ufo
         'speed': 10,
         'shots_per_second': 3,
 }
 
-SMALL_UFO = {
+SMALL_UFO = {  #: initial settings of small ufo
         'speed': 8,
         'shots_per_second': 2
 }
@@ -67,7 +79,10 @@ SMALL_UFO = {
 
 def init_display():
     """
-    Function will init pygame window and resources.
+    Function that initialize pygame
+
+    Initialize pygame modules, load resources, set icon, set window and plot
+    loading screen.
     """
     global FONT_PATHS
     global MUSIC_PATHS

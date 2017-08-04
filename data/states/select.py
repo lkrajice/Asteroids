@@ -1,31 +1,98 @@
 """
-Game's menu.
+Module defining game's main menu
+
+Attributes:
+    HEADER_MARGIN_TOP (int): distance between header center and screen center
+    OPTIONS_FONT_SIZE (int): size of fonts of menu items
+    OPTIONS_SPACING (int): spacing between menu items
+    OPTIONS (:obj:`list` of :obj:`str`): list of menu items
+    COLOR_SELECTED (:obj:`list` of :obj:`str`): color of selected item
+
 """
 
 import pygame as pg
 
-from . import widget_tools
-from .. import prepare, tools, state_machine
+from data.states import widget_tools
+from data import prepare, state_machine
 
 HEADER_MARGIN_TOP = 150
-OPTIONS_Y = 200
 OPTIONS_FONT_SIZE = 100
 OPTIONS_SPACING = 150
 OPTIONS = ['PLAY', 'CONTROLS', 'QUIT']
 COLOR_SELECTED = (255, 255, 0)
 
 
-class Select(state_machine._State):
+class Select(state_machine._ControlingState):
     """
-    Show game's menu and take care of it.
-    """
-    def __init__(self):
-        state_machine._State.__init__(self)
-        self.next = ''
-        self.quit = False
-        self.header = None
-        self.state_machine = state_machine.StateMachine()
+    Controling state for main menu
 
+    Create low-level `StateMachine`. 'OPTIONS' state is menu itself, other
+    states are just `CommandState` witch can be selected to activate by menu.
+
+    When CommandState is active, this 'SELECT' state recognize that and set
+    `done` to True, also set `next` according to command states's
+    `require_higher_level_to`.
+    """
+    def startup(self, now, persist):
+        """
+        Create option state and subcommands
+        """
+        state_dict = {'OPTIONS': Options(OPTIONS),
+                      'PLAY': state_machine.CommandState('GAME'),
+                      'CONTROLS': state_machine.CommandState('CONTROLS'),
+                      'QUIT': state_machine.CommandState('QUIT')}
+        self.state_machine.setup_states(state_dict, 'OPTIONS')
+
+
+class OptionItem(widget_tools.SimpleText):
+    """
+    Menu item
+
+    `SimpleText` extension. It only manages changing color.
+
+    Args:
+        text (str): text of menu item
+        y (int): y position, x is always center of the screen
+
+    """
+    def __init__(self, text, y):
+        position = widget_tools.change_pos(prepare.SCREEN_RECT.center, 0, y)
+        super().__init__('ARCADECLASSIC', 80, text, position)
+
+    def is_selected(self, selected):
+        """
+        Set text color due to given status
+
+        Args:
+            selected (bool): given actual status
+
+        """
+        if selected:
+            self.color = COLOR_SELECTED
+        else:
+            self.color = (255, 255, 255)
+        self.update_text()
+
+
+class Options(state_machine._State):
+    """
+    Main menu of the game
+
+    Args:
+        option (:obj:`list` of :obj:`str`): list of menu items
+
+    Attributes:
+        option_items (:obj:`list` of :obj:`OptionItem`): list of menu items
+        active_index (int): index of selected menu item
+        header (widget_tools.SimpleText): header
+
+    """
+    def __init__(self, options):
+        super().__init__()
+        self.option_items = [OptionItem(x, index * OPTIONS_SPACING)
+                             for index, x in enumerate(options)]
+        self.active_index = 0
+        self.option_items[self.active_index].is_selected(True)
         header_center = widget_tools.change_pos(
                 prepare.SCREEN_RECT.midtop,
                 0,
@@ -38,96 +105,35 @@ class Select(state_machine._State):
                 header_center
         )
 
-    def startup(self, now, persist):
-        """
-        Create substructure similar to top application structure.
-        OPTIONS state is menu itself, other states can user acces via menu.
-        CommandSubstate command Select state, that it shoud end and call
-        another state.
-        """
-        state_dict = {'OPTIONS': Options(OPTIONS),
-                      'PLAY': CommandSubstate('GAME'),
-                      'CONTROLS': CommandSubstate('CONTROLS'),
-                      'QUIT': CommandSubstate('QUIT')}
-        self.state_machine.setup_states(state_dict, 'OPTIONS')
-
-    def get_event(self, event):
-        self.state_machine.get_event(event)
-
-    def draw(self, surface, interpolate):
-        surface.fill(prepare.BACKGROUND_COLOR)
-        self.header.draw(surface)
-        self.state_machine.draw(surface, interpolate)
-
-    def update(self, keys, now):
-        """
-        If CommandSubstate request quit, state quit and start
-        'require_higher_level_to' state.
-        """
-        if self.state_machine.state.quit:
-            self.next = self.state_machine.state.require_higher_level_to
-            self.done = True
-        else:
-            self.state_machine.update(keys, now)
-
-
-class OptionItem(widget_tools.SimpleText):
-    """
-    Only difference is that OptionItem contains is_selected that
-    change its color. Used when item is selected.
-    """
-    def __init__(self, title, y):
-        widget_tools.SimpleText.__init__(
-                self,
-                'ARCADECLASSIC',
-                80,
-                title,
-                widget_tools.change_pos(prepare.SCREEN_RECT.center, 0, y)
-        )
-
-    def is_selected(self, selected):
-        """
-        Colorize text to COLOR_SELECTED or white.
-        """
-        if selected:
-            self.color = COLOR_SELECTED
-        else:
-            self.color = (255, 255, 255)
-        self.update_text()
-
-
-class Options(state_machine._State):
-    """
-    Menu manager. Contains all menu items. Manage colorizinig.
-    """
-    def __init__(self, options):
-        state_machine._State.__init__(self)
-        self.next = ''
-        self.option_items = [OptionItem(x, index * OPTIONS_SPACING)
-                             for index, x in enumerate(options)]
-        self.active_index = 0
-        self.option_items[self.active_index].is_selected(True)
-
     def set_highline(self, new_index):
         """
-        Change item colors if needed.
+        Change colors of previously active and currently active option item
+
+        Args:
+            new_index (int): index of new selected item
+
         """
         if 0 <= new_index <= len(self.option_items):
             self.option_items[self.active_index].is_selected(False)
             self.active_index = new_index
             self.option_items[self.active_index].is_selected(True)
 
-    def draw(self, surface, interpolate):
+    def draw(self, surface):
+        surface.fill(prepare.BACKGROUND_COLOR)
+        self.header.draw(surface)
         for item in self.option_items:
             item.draw(surface)
 
-    def update(self, keys, now):
+    def update(self, now):
         pass
 
     def get_event(self, event):
+        """
+        Set new active item according to user event.
+        """
         new_index = self.active_index
         if event.type == pg.KEYDOWN:
-            if event.key == pg.K_RETURN:  # enter
+            if event.key == pg.K_RETURN:
                 self.next = self.option_items[self.active_index].text
                 self.done = True
             elif event.key == pg.K_UP:
@@ -136,24 +142,3 @@ class Options(state_machine._State):
                 new_index = min(len(self.option_items) - 1,
                                 self.active_index + 1)
             self.set_highline(new_index)
-
-
-class CommandSubstate(state_machine._State):
-    """
-    Special state. It set self.quit to True which kill superior state.
-    self.require_highter_level_to commands higher state, what state shoul
-    take place.
-    """
-    def __init__(self, require):
-        state_machine._State.__init__(self)
-        self.quit = True
-        self.require_higher_level_to = require
-
-    def draw(self, surface, interpolate):
-        pass
-
-    def update(self, keys, now):
-        pass
-
-    def get_event(self, event):
-        pass
