@@ -8,7 +8,12 @@ runloop:
 		sleep 0.1; clear; make run; \
 	done
 run:
-	python3 asteroids.py
+	./asteroids
+
+test:
+	nosetests tests --with-coverage --cover-erase -v -s --cover-package=data.components data.states.game
+	-pyflakes .
+	-pep8 .
 
 clean: cleanvim cleanpy
 
